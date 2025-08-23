@@ -1,0 +1,717 @@
+html, body {
+    height: 100%;
+    margin: 0; 
+    min-width: 1000px;
+    min-height: 700px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4c4;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #4CAF50; /* или любой другой фон */
+    padding: 10px 0; /* отступ сверху и снизу */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* выравнивание по вертикали */
+    margin: 0 auto;
+    padding: 0 20px; /* отступы слева и справа */
+}
+
+nav {
+    flex-grow: 1; /* для навигации, чтобы она занимала все доступное пространство */
+}
+
+#tabs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+}
+
+#tabs li {
+    display: inline-block;
+}
+
+#right_log_in {
+    display: flex;
+    gap: 10px; /* расстояние между кнопками */
+}
+
+/* Цвет шрифта вкладок сайта */
+header button {
+    border:2px solid #fff;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color:#4CAF50;
+    color:white;
+    padding: 3px;
+    padding-inline: 7px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.active-btn {
+    background-color: white;
+    color:#4CAF50;
+}
+
+#user{
+    display: none;
+    gap: 10px;
+}
+
+#accountIcon{
+    height: 36px;
+    cursor: pointer;
+}
+
+.popup {
+    display: none; 
+    position: absolute;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    margin-top: 10px;
+    flex-direction: column;
+}
+
+#new_pos, #new_neg{
+    flex-grow: 1;
+    padding: 10px;
+    background-color: white;
+    color: #4CAF50;
+    border:2px solid #4CAF50;
+    border-radius: 5px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 18px;
+    transition: background-color 0.3s, border-color 0.3s; /* Плавный переход */
+    outline: none; /* Убираем outline, который появляется при фокусе */
+    width: auto; /* Гарантируем, что ширина фиксирована */
+    height: auto;
+}
+
+#new_pos{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#new_neg{
+    margin-left: 2px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#new_rh{
+    display: flex;          /* Располагаем кнопки в одну строку */
+    width: 100%;   
+    margin-bottom: 13px;
+}
+
+#new_pos.active{
+    background-color: #4CAF50;
+    color: white;
+    border: #4CAF50;
+}
+
+#new_pos:active {
+    color: white;
+    background-color: #45a049;
+    border-color: #45a049; /* Цвет границы при нажатии */
+    outline: none;
+}
+
+#new_neg.active{
+    background-color: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+}
+
+#new_neg:active {
+    color: white;
+    background-color: #45a049;
+    border-color: #45a049; /* Цвет границы при нажатии */
+    outline: none;
+}
+
+/* Стиль для кнопки */
+.toggle-password {
+    margin-right: 8px;
+    margin-left: auto;
+    margin-bottom: 4px;
+    background: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    color: #4CAF50;
+}
+
+#login_btn:active{
+    border-color: rgba(0, 0, 0, 0.3);
+    background-color:rgba(0, 0, 0, 0.2);
+}
+#signup_btn:active{
+    border-color: rgba(0, 0, 0, 0.3);
+    background-color:rgba(0, 0, 0, 0.2);
+}
+
+.warning-message, .submit_warn, .submit_warn2 {
+    color: red;
+    font-size: 12px;
+    display: none; /* Скрыт по умолчанию */
+}
+
+/* Стили для скрытия и показа контента */
+.page {
+    display: none;
+}
+.active {
+    display: block;
+    padding: 1.3%;
+    background-color: white;
+    margin: 1.3%;
+    border-radius: 8px;
+    flex: 1;
+}
+
+.active_cart {
+    display: block;
+    padding: 1.3%;
+    background-color: white;
+    margin: 1.3%;
+    border-radius: 8px;
+    flex: 1;
+}
+
+#home{
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background-color: #f4f4f4;
+}
+
+.index_image_container{
+    margin: 1.3%;
+    width: 97.4%; 
+    height: 93%; 
+    border-radius: 8px;
+    object-fit: cover; 
+    position: relative; /* Контейнер для позиционирования */
+    background-image: url('img/main_background/background.jpg'); /* Фоновое изображение JPG */
+    background-size: cover; /* Обеспечивает, чтобы изображение заполнило контейнер */
+    background-position: center; /* Центрирует фоновое изображение */
+}
+
+.svg-image {
+    position: absolute; /* Абсолютное позиционирование для размещения поверх фона */
+    pointer-events: none; /* Убирает возможность клика по SVG, если не требуется взаимодействие */
+}
+
+#zavod_1{
+    size: 100px;
+    top: 8px;
+    left: 8px;
+}
+
+#rehau_label{
+    top: 28px;
+    left: 140px;
+    height: 43px;
+}
+
+#check{
+    top: 20px;
+    right: 365px;;
+    height: 50px; 
+}
+
+#text_background{
+    border-radius: 8px;
+    opacity: 0.6;
+    width: 390px; 
+    height: 178px;
+    top: 10px;
+    right: 35px;
+}
+
+#certificate{
+    color:white;
+    position: absolute;
+    right: 60px;
+    font-size: 25px;
+}
+
+
+/* Стиль для сегмента */
+#products, #types_section, #section_feedback1, #section_feedback2, #section_feedback3{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Расположение карточек с отступами */
+    gap: 20px; /* Расстояние между карточками */
+    padding: 10px;
+}
+
+/* Стиль для карточки */
+.profile, .type, .client{
+    display: flex;
+    flex-direction: column; /* Располагаем элементы внутри карточки вертикально */
+    justify-content: space-between; /* Располагаем элементы карточки с равномерным распределением пространства */
+    width: 180px; /* Ширина карточки */
+    border: 1px solid #ccc; /* Рамка карточки */
+    border-radius: 10px; /* Скругленные углы */
+    padding: 15px;
+    background-color: #f9f9f9; /* Цвет фона карточки */
+    text-align: left; /* Выравнивание текста по центру */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для карточки */
+}
+
+/* Стиль для изображения карточки */
+.profile img, .type img{
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Скругление углов изображения */
+}
+
+/* Стиль для заголовка карточки */
+.profile h3, .type h3, .client h3 {
+    font-size: 18px;
+    text-align: left;
+    text-indent: 10px;
+    margin-bottom: 5px;
+}
+
+/* Стиль для описания */
+.desc{
+    text-indent: 10px;
+    font-size: 14px;
+    color: #555;
+    flex-grow: 1;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+/* Стиль для цены */
+.price{
+    margin-top: 0;
+    margin-bottom: 7px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #e74c3c;
+    text-align: right;
+}
+
+.price_cont{
+    flex-direction: row;
+}
+
+.price_cont button{
+    border: 2px solid #ccc; /* Рамка карточки */
+    border-radius: 7px;
+    font-size: 18px;
+    background-color:#f9f9f9;
+    color:#1d1d1d;
+    padding: 6px;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для карточки */
+}
+
+.price_cont button:active{
+    background-color:#4CAF50;
+    color:#f9f9f9;
+}
+
+footer{
+    margin-top: 0;
+    text-align: center;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+#cart{
+    display: none;
+    flex-direction: row; /* Располагаем элементы внутри карточки вертикально */
+    overflow-y: hidden;
+}
+
+.proudct {
+    flex-grow: 1; /* Занимает всё оставшееся пространство */
+}
+
+#confirm-purch {
+    display: flex;
+    flex-direction: column; /* Располагаем элементы внутри карточки вертикально */
+    margin-top: -1.3%;
+    margin-bottom: -1.3%;
+    margin-right: -1.3%;
+    margin-left: 1.3%;
+    width: 25%; /* Занимает 25% ширины */
+    background-color: #4CAF50;/* Можно добавить фон, для выделения */
+    color:white;
+    text-align: center; /* Центрируем текст */
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+#confirm-purch label{
+    margin-top:10px;
+    font-size: 20px;
+}
+
+#tr_companies{
+    margin-inline: 10px;
+    font-size: 20px;
+    border-radius: 8px;
+    padding:3px;
+    border: 0;
+}
+
+#order_btn{
+    margin-top:auto;
+    margin-inline: 10px;
+    border:2px;
+    border-radius: 8px;
+    font-size: 20px;
+    background-color:white;
+    color:#4CAF50;
+    padding: 3px;
+    cursor: pointer;
+}
+
+#total-price{
+    margin-top:5px;
+    margin-bottom:10px;
+}
+
+.cart-items{
+    display: flex;
+    height:100%;
+    flex-direction: column; /* Располагаем элементы внутри карточки вертикально */
+    gap: 10px;
+}
+
+.prod_element{
+    display: flex;
+    flex-direction: row; /* Располагаем элементы внутри карточки вертикально */
+    height:13%;
+    justify-content: space-between; /* Располагаем элементы карточки с равномерным распределением пространства */
+    border: 1px solid #ccc; /* Рамка карточки */
+    border-radius: 10px; /* Скругленные углы */
+    padding: 12px;
+    background-color: #f9f9f9; /* Цвет фона карточки */
+    text-align: left; /* Выравнивание текста по центру */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для карточки */
+}
+
+.cart_desc{
+    display: flex;
+    width:100%; /* Занимает всё оставшееся пространство */
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.cart_desc button{
+    border:2px;
+    border-radius: 8px;
+    font-size: 20px;
+    background-color:#4CAF50;
+    color:white;
+    padding: 3px;
+    cursor: pointer;
+}
+
+.quantity_inp{
+    height:12px;
+    margin-inline: 5px;
+    width:8px; 
+    margin-top:15px;
+    border:0;
+    background-color: #f9f9f9;
+}
+
+.name_n_amount{
+    display: flex;
+    justify-content: center;  /* Выравнивание по горизонтали */
+    align-items: center;      /* Выравнивание по вертикали */
+}
+
+.name_n_amount button{
+width:27px;
+}
+
+.name_n_amount h3{
+    margin-right: 20px;
+}
+
+.price_n_delete{
+    display: flex;
+    flex-direction: column; /* Располагаем элементы внутри карточки вертикально */
+    margin-left:auto;
+}
+
+.price_n_delete p{
+    flex-grow: 1; /* Занимает всё оставшееся пространство */
+}
+
+.price_n_delete button{
+    padding-inline: 10px;
+}
+
+.cart_img{
+    height:100%;
+    border-radius: 5px; /* Скругленные углы */
+    margin-right:10px;
+}
+
+.order_list{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Занимает всё оставшееся пространство */
+    height: 100%;
+    gap: 10px;
+}
+
+
+#order_table{
+    height: 40px;
+    display: flex;
+    color:white;
+    flex-direction: row; /* Располагаем элементы внутри карточки вертикально */
+    border-radius: 10px; /* Скругленные углы */
+    padding-inline: 16px;
+    background-color: #4CAF50; /* Цвет фона карточки */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для карточки */
+    padding-right: 0;
+    margin-bottom: 10px;
+}
+
+.order_desc{
+    height: 60px;
+    display: flex;
+    flex-direction: row; /* Располагаем элементы внутри карточки вертикально */
+    border: 1px solid #ccc; /* Рамка карточки */
+    border-radius: 10px; /* Скругленные углы */
+    padding-inline: 16px;
+    background-color: #f9f9f9; /* Цвет фона карточки */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для карточки */
+    padding-right: 0;
+}
+
+.order_items{
+    width:66%;
+    border-right: 1px solid #ccc;
+    margin:0;
+    height:100%;
+    align-self: center;
+    align-content: center;
+}
+
+.order_tc{
+    padding-inline: 5px;
+    width:12%;
+    text-align: center;    
+    border-right: 1px solid #ccc;
+    margin:0;
+    height:100%;
+    align-self: center;
+    align-content: center;
+}
+
+.order_weight{
+    width:11%;
+    text-align: center;    
+    border-right: 1px solid #ccc;
+    margin:0;
+    height:100%;
+    align-self: center;
+    align-content: center;
+}
+
+.order_price{
+    width:11%;
+    text-align: center;    
+    border-right: 1px solid #ccc;
+    margin:0;
+    height:100%;
+    align-self: center;
+    align-content: center;
+}
+
+.order_time{
+    width: 12%;
+    margin:0;
+    height:100%;
+    align-self: center;
+    align-content: center;
+    text-align: center;    
+    padding-inline: 5px;
+} 
+
+
+
+.noauth_notification{
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+
+
+.shipping_list{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Занимает всё оставшееся пространство */
+    height: 100%;
+    gap: 10px;
+}
+
+.shipping_item{
+    height: 200px;
+    display: flex;
+    flex-direction: row; /* Располагаем элементы внутри карточки вертикально */
+    border: 1px solid #ccc; /* Рамка карточки */
+    border-radius: 10px; /* Скругленные углы */
+    padding: 16px;
+    background-color: #f9f9f9; /* Цвет фона карточки */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для карточки */
+}
+
+.image_item{
+    width: auto;
+    max-width: 100%;
+    border-radius: 5px; /* Скругленные углы */
+    margin-right: 15px;
+}
+
+.shipping_label{
+    margin:0;
+    font-size: 24px;
+}
+
+.detail_container{
+    margin-left: auto;
+    font-size: 18px;
+}
+
+.modal {
+    display: none; /* Скрываем окно по умолчанию */
+    position: fixed; /* Окно фиксируется на экране */
+    z-index: 1; /* Устанавливаем поверх всех элементов */
+    left: 0;
+    top: 0;
+    width: 100%; /* Занимает всю ширину */
+    height: 100%; /* Занимает всю высоту */
+    background-color: rgba(0, 0, 0, 0.7); /* Темный фон с прозрачностью */
+  }
+  
+  /* Стили для контента окна */
+  .modal-content {
+    background-color: white;
+    margin: 13% auto; /* Отступ от верхнего края экрана */
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+  }
+  
+  /* Стили для кнопки закрытия */
+  .close {
+    color: #aaa;
+    font-size: 50px;
+    font-weight: bold;
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    border-color: white;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  h2{
+    margin-top: 0px;
+  }
+  
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 5px;
+  }
+  
+  input {
+    margin-bottom: 15px;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 6px;
+    border-width: 1.5px;
+  }
+  #new_password, #password{
+    margin-bottom: 4px;
+  } 
+  
+  #login_btn2 {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5p;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 18px;
+  }
+  
+  #login_btn2:hover {
+    background-color: #45a049;
+  }
+
+  #signup_btn2 {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 18px;
+  }
+  
+
+  .close1 {
+    color: #aaa;
+    font-size: 50px;
+    font-weight: bold;
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    cursor: pointer;
+  }
+  
+  .close1:hover,
+  .close1:focus {
+    color: black;
+    border-color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
